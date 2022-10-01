@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="Wi_Fi_Party_C___UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wi_Fi_Party_C___UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button Content="Button" Height="56" Margin="311,330,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click"/>
+
+    </Grid>
+</Page>

@@ -9,6 +9,7 @@
 
 #include <Audioclient.h>
 #include <Audiopolicy.h>
+#include <WinSock2.h>
 #include <Windows.h>
 #include <wrl\implements.h>
 #include <mfapi.h>
@@ -35,5 +36,6 @@ namespace Wi_Fi_Party_C___UWP
 		void Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 
+	
     
 }

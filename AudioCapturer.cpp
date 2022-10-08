@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "AudioCapturer.h"
 
-AudioCapturer::AudioCapturer() {
+AudioCapturer::AudioCapturer(Channel* vocalChannel) {
+	this->vocalChannel = vocalChannel;
+
 	HRESULT hr;
 
 	m_RecordCallbackEvent = CreateEventEx(nullptr, nullptr, 0, EVENT_ALL_ACCESS);
@@ -125,6 +127,8 @@ HRESULT AudioCapturer::OnRecordCallback(IMFAsyncResult* pResult) {
 			continue;
 		}
 		//Send the sound in the buffer!
+
+		this->vocalChannel->send((char*)buffer, framesAvailable * 1, 0);
 
 
 		hr = m_AudioCaptureClient->ReleaseBuffer(framesAvailable);

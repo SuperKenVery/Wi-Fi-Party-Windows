@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "AudioRenderer.h"
 
-AudioRenderer::AudioRenderer() {
+AudioRenderer::AudioRenderer(Mixer<Trackreceiver>* mixedSound) {
+	this->mixedSound = mixedSound;
+
 	HRESULT hr;
 
 	hr = MFStartup(MF_VERSION, MFSTARTUP_LITE);
@@ -144,9 +146,10 @@ HRESULT AudioRenderer::OnPlayCallback(IMFAsyncResult* pResult) {
 	}
 	UINT32 length = format.nBlockAlign * numFrames;
 	//Fill the buffer with sound!!
-	memset(buffer, nosound, length);
+	
+	this->mixedSound->readSound((char*)buffer, length);
 
-	hr=m_AudioRenderClient->ReleaseBuffer(1, 0);
+	hr=m_AudioRenderClient->ReleaseBuffer(numFrames, 0);
 	if (FAILED(hr)) {
 		printf("Failed to release buffer\n");
 		exit(1);

@@ -5,6 +5,7 @@
 #include <mfapi.h>
 #include <AudioClient.h>
 #include <mmdeviceapi.h>
+#include "libwifiparty/mixer.hpp"
 
 using namespace Microsoft::WRL;
 using namespace Windows::Media::Devices;
@@ -13,7 +14,7 @@ using namespace Windows::Storage::Streams;
 
 class AudioRenderer : public RuntimeClass<RuntimeClassFlags<ClassicCom>, FtmBase, IActivateAudioInterfaceCompletionHandler> {
 public:
-    AudioRenderer();
+    AudioRenderer(Mixer<Trackreceiver>* mixedSound);
     METHODASYNCCALLBACK(AudioRenderer, PlayCallback, OnPlayCallback);
     //METHODASYNCCALLBACK(AudioRenderer, RecordCallback, OnRecordCallback);
     STDMETHOD(ActivateCompleted)(IActivateAudioInterfaceAsyncOperation* operation);
@@ -30,5 +31,6 @@ private:
     WAVEFORMATEX format = { 0 };
     MFWORKITEM_KEY playCallbackKey;
     UINT32 m_BufferFrames;
+    Mixer<Trackreceiver>* mixedSound;
 };
 

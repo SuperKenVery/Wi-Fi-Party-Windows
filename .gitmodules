@@ -1,0 +1,6 @@
+[submodule "party-protocol"]
+	path = party-protocol
+	url = https://gitee.com/xyhken/party-protocol.git
+[submodule "libwifiparty"]
+	path = libwifiparty
+	url = https://gitee.com/xyhken/libwifiparty.git

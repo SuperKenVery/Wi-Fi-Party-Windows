@@ -4,10 +4,10 @@
 #include <wrl\implements.h>
 #include <mmreg.h>
 #include <mfapi.h>
+#include <tchar.h>
 
 using namespace Microsoft::WRL;
 
-unsigned const char nosound = 0x80;
 
 #ifndef METHODASYNCCALLBACK
 #define METHODASYNCCALLBACK(Parent, AsyncCallback, pfnCallback) \

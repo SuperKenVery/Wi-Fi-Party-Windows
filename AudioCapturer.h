@@ -5,6 +5,7 @@
 #include <mfapi.h>
 #include <AudioClient.h>
 #include <mmdeviceapi.h>
+#include "party-protocol/party-protocol.hpp"
 
 using namespace Microsoft::WRL;
 using namespace Windows::Media::Devices;
@@ -12,7 +13,7 @@ using namespace Windows::Storage::Streams;
 
 class AudioCapturer : public RuntimeClass<RuntimeClassFlags<ClassicCom>, FtmBase, IActivateAudioInterfaceCompletionHandler> {
 public:
-    AudioCapturer();
+    AudioCapturer(Channel* vocalChannel);
     METHODASYNCCALLBACK(AudioCapturer, RecordCallback, OnRecordCallback);
     //METHODASYNCCALLBACK(AudioRenderer, RecordCallback, OnRecordCallback);
     STDMETHOD(ActivateCompleted)(IActivateAudioInterfaceAsyncOperation* operation);
@@ -28,5 +29,6 @@ private:
     HANDLE m_RecordCallbackEvent;
     WAVEFORMATEX format = { 0 };
     MFWORKITEM_KEY recordCallbackKey;
+    Channel* vocalChannel;
 };
 

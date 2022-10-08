@@ -134,6 +134,7 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
@@ -169,6 +170,13 @@
   <ItemGroup>
     <ClInclude Include="AudioCapturer.h" />
     <ClInclude Include="AudioRenderer.h" />
+    <ClInclude Include="libwifiparty\mixer.hpp" />
+    <ClInclude Include="libwifiparty\trackreceiver.hpp" />
+    <ClInclude Include="party-protocol\app.h" />
+    <ClInclude Include="party-protocol\channel.hpp" />
+    <ClInclude Include="party-protocol\packet.hpp" />
+    <ClInclude Include="party-protocol\party-protocol.hpp" />
+    <ClInclude Include="party-protocol\receiver.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
@@ -206,9 +214,13 @@
     </ClCompile>
     <ClCompile Include="AudioCapturer.cpp" />
     <ClCompile Include="AudioRenderer.cpp" />
+    <ClCompile Include="libwifiparty\trackreceiver.cpp" />
     <ClCompile Include="MainPage.xaml.cpp">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="party-protocol\channel.cpp" />
+    <ClCompile Include="party-protocol\packet.cpp" />
+    <ClCompile Include="party-protocol\receiver.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

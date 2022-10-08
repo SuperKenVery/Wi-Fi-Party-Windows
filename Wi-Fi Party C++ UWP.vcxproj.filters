@@ -16,12 +16,23 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="AudioRenderer.cpp" />
     <ClCompile Include="AudioCapturer.cpp" />
+    <ClCompile Include="party-protocol\channel.cpp" />
+    <ClCompile Include="party-protocol\packet.cpp" />
+    <ClCompile Include="party-protocol\receiver.cpp" />
+    <ClCompile Include="libwifiparty\trackreceiver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="AudioRenderer.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="AudioCapturer.h" />
+    <ClInclude Include="party-protocol\app.h" />
+    <ClInclude Include="party-protocol\channel.hpp" />
+    <ClInclude Include="party-protocol\packet.hpp" />
+    <ClInclude Include="party-protocol\party-protocol.hpp" />
+    <ClInclude Include="party-protocol\receiver.hpp" />
+    <ClInclude Include="libwifiparty\mixer.hpp" />
+    <ClInclude Include="libwifiparty\trackreceiver.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
